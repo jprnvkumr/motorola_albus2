@@ -1,5 +1,5 @@
 #
-# system.prop for sanders
+# system.prop for albus
 #
 
 # Audio
@@ -244,7 +244,7 @@ ro.vendor.sensors.facing=false
 ro.vendor.sensors.scrn_ortn=false
 ro.vendor.sensors.pedometer=false
 ro.vendor.sensors.glance_approach=false
-ro.hardware.sensors=sanders
+ro.hardware.sensors=albus
 
 #Trim properties
 ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
@@ -263,3 +263,6 @@ ro.usb.bpteth_adb=0x2ee8
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.at_library=libqti-at.so
 ro.vendor.gt_library=libqti-gt.so
+
+# Mods
+sys.mod.platformsdkversion=250

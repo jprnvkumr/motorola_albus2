@@ -1,6 +1,9 @@
 # Moto USB configuration
 import /system/vendor/etc/init/hw/init.mmi.usb.rc
 
+# Moto Mod configuration
+import /vendor/etc/init/hw/init.mods.rc
+
 on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
     write /proc/sys/kernel/poweroff_cmd "/system/bin/reboot -p"
@@ -280,7 +283,7 @@ service vendor.mmi-boot-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.boo
     oneshot
     disabled
 
-# Sanders uses qti sensor service
+# Albus uses qti sensor service
 service vendor.sensors.qti /system/vendor/bin/sensors.qti
     class core
     user root

@@ -26,6 +26,7 @@
 #
 
 import /system/vendor/etc/init/hw/init.mmi.rc
+import /vendor/etc/init/hw/init.${ro.boot.device}.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -286,6 +287,10 @@ on boot
 
     # Create directory used for display
     mkdir /persist/display 0770 system graphics
+
+    # Permissions for HDMI out over greybus
+    chown system graphics /sys/class/graphics/fb2/res_info
+    chmod 0664 /sys/class/graphics/fb2/res_info 
 
     # Create vpp directory
     mkdir /persist/vpp 0770 media media

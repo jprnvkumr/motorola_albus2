@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter sanders,$(TARGET_DEVICE)),)
+ifneq ($(filter albus,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -145,6 +145,16 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /system/vendor/lib64/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
+
+MODS_LIBS := libmodhw.so
+MODS_SYMLINKS := $(addprefix $(TARGET_OUT)/ModFmwkProxyService/lib/arm64/,$(notdir $(MODS_LIBS)))
+$(MODS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "MODS lib link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /system/lib64/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(MODS_SYMLINKS)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
