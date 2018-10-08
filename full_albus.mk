@@ -27,3 +27,4 @@ PRODUCT_NAME := full_albus
 
 # for specific
 $(call inherit-product, vendor/motorola/sanders/sanders-vendor.mk)
+$(call inherit-product, vendor/motorola/albus/albus-vendor.mk)
