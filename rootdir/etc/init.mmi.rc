@@ -284,7 +284,7 @@ service vendor.mmi-boot-sh /system/vendor/bin/sh /system/vendor/bin/init.mmi.boo
     disabled
 
 # Albus uses qti sensor service
-service vendor.sensors.qti /system/vendor/bin/sensors.qti
+service vendor.sensors.qcom /system/vendor/bin/sensors.qcom
     class core
     user root
     group root
