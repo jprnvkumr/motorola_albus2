@@ -19,7 +19,7 @@
 $(call inherit-product, device/motorola/albus/full_albus.mk)
 
 # Inherit some common lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
@@ -27,7 +27,7 @@ TARGET_SCREEN_HEIGHT := 1920
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := albus
-PRODUCT_NAME := lineage_albus
+PRODUCT_NAME := gzosp_albus
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 

@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-$(LOCAL_DIR)/lineage_albus.mk
+$(LOCAL_DIR)/gzosp_albus.mk
