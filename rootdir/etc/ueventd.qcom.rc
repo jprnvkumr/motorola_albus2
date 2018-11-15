@@ -148,10 +148,10 @@
 /dev/msm_camera/*         0660   system     camera
 /dev/gemini/              0660   system     camera
 /dev/mercury0             0660   system     camera
-/dev/msm_vidc_reg         0660   system     camera
-/dev/msm_vidc_dec         0660   system     camera
-/dev/msm_vidc_dec_sec     0660   system     camera
-/dev/msm_vidc_enc         0660   system     camera
+/dev/msm_vidc_reg         0660   system     audio
+/dev/msm_vidc_dec         0660   system     audio
+/dev/msm_vidc_dec_sec     0660   system     audio
+/dev/msm_vidc_enc         0660   system     audio
 /dev/msm_rotator          0660   system     system
 /dev/sdsprpc-smd          0660   system     system
 
@@ -302,6 +302,9 @@
 # Add device block for FRP
 /dev/block/platform/soc/7464900.sdhci/by-name/frp       0600   system     system
 /dev/block/platform/soc/624000.ufshc/by-name/frp        0600   system     system
+/dev/block/platform/soc/1da4000.ufshc/by-name/frp       0600   system     system
+/dev/block/platform/soc/c0c4000.sdhci/by-name/frp       0600   system     system
+/dev/block/platform/soc/1d84000.ufshc/by-name/frp       0600   system     system
 /dev/block/bootdevice/by-name/frp 0600 system system
 
 # Kmsg device
@@ -346,10 +349,22 @@
 # MOD light device
 /sys/devices/platform/mods_ap/greybus1/*/*/leds/mod_light*::backlight brightness 0660 root oem_5020
 
-# GreyBus RAW device
-/dev/gbraw*             0660   root   oem_5020
+# IIO (dynamic sensors)
+/sys/devices/iio_sysfs_trigger/add_trigger          0220    system      system
+/sys/devices/iio_sysfs_trigger/remove_trigger       0220    system      system
 
-# MOD Audio device
+/sys/devices/iio:device* buffer/*                   0664    system      system
+/sys/devices/iio:device* scan_elements/in_*_en      0664    system      system
+/sys/devices/iio:device* trigger/current_trigger    0664    system      system
+/sys/devices/iio:device* in_sampling_frequency      0664    system      system
+/sys/devices/iio:device* max_latency_ns             0664    system      system
+/sys/devices/iio:device* flush                      0220    system      system
+
+/dev/iio:device*                                    0600    system      system
+
+# RAW device
+/dev/gbraw*             0660   root   oem_5020
+# Audio device
 /sys/devices/platform/mods_codec.0 uevent 0660 root oem_5020
 /sys/devices/platform/mods_codec.0/* uevent 0660 root oem_5020
 
@@ -371,3 +386,7 @@
 
 #Egistec fingerprint
 /dev/esfp0		  0660   system     system
+
+# Trustonic TEE device
+/dev/mobicore             0600   system     system
+/dev/mobicore-user        0666   system     system

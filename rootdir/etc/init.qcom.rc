@@ -122,6 +122,19 @@ on boot
 
     chmod 0660 /dev/ttyHS2
     chown bluetooth bluetooth /dev/ttyHS2
+   
+    # Allow access to sensors device attributes
+    chown system system /sys/class/sensors/MPU6050-accel/enable
+    chown system system /sys/class/sensors/MPU6050-accel/poll_delay
+    chown system system /sys/class/sensors/MPU6050-gyro/enable
+    chown system system /sys/class/sensors/MPU6050-gyro/poll_delay
+    chown system system /sys/class/sensors/apds9930-light/enable
+    chown system system /sys/class/sensors/apds9930-light/poll_delay
+    chown system system /sys/class/sensors/apds9930-proximity/enable
+    chown system system /sys/class/sensors/apds9930-proximity/poll_delay
+
+    #enable camera read sensors data
+    setprop persist.camera.gyro.disable 0
 
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
@@ -218,6 +231,7 @@ on boot
     chown system system /sys/homebutton/enable_off
     chown system system /sys/homebutton/haptic
     chown system system /sys/homebutton/haptic_off
+    chown system system /sys/homebutton/proximity_check_off 
     chown system system /sys/homebutton/key
     chown system system /sys/homebutton/key_hold
     chown system system /sys/homebutton/key_dbltap
@@ -308,6 +322,10 @@ on post-fs-data
 
     mkdir /data/vendor/misc 01771 system system
 
+    # Required by FingerPrint Cards (FPC) via init so we dont need to give qseecomd or fingerprintd permissions to create them
+    mkdir /data/fpc 0700 system system
+    mkdir /data/.fps 0770 system input
+
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
@@ -384,6 +402,9 @@ on post-fs-data
     # Create the directories used by DPM subsystem
     mkdir /data/dpm 0771 system system
     chown system system /data/dpm
+
+    # Create greybus firmware folder
+    mkdir /data/gbfirmware 0770 oem_5020 oem_5020
 
     mkdir /data/dpm/nsrm 0771 system system
     chown system system /data/dpm/nsrm
@@ -468,6 +489,10 @@ on post-fs-data
     mkdir /data/vendor/perfd 0770 root system
     chmod 2770 /data/vendor/perfd
     rm /data/vendor/perfd/default_values
+
+    # NFC local data and nfcee xml storage
+    mkdir /data/nfc 0770 nfc nfc
+    mkdir /data/nfc/param 0770 nfc nfc
 
     #Create IOP  deamon related dirs
     mkdir /data/vendor/misc/iop 0770 root system
@@ -563,6 +588,18 @@ service vendor.wcnss-service /system/bin/wcnss_service
     user system
     group system wifi radio
     oneshot
+
+service vppservice /vendor/bin/vppservice
+    class main
+    user media
+    group camera
+
+# Start AKM executable
+service ecompassd /vendor/bin/akmd09912
+    class main
+    user compass
+    group compass misc input
+    disabled
 
 service vendor.adsprpcd /system/vendor/bin/adsprpcd
     class main
