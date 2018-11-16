@@ -252,7 +252,21 @@ on boot
    chown root oem_5004 /sys/class/graphics/fb0/te_enable
    chown root oem_5004 /sys/class/graphics/fb0/frame_counter
 
-   # Change ownership of aov related sysfs entries
+   chmod 0755 /persist/sensors
+   chmod 0644 /persist/sensors/sensors_settings
+   chown system root /persist/sensors/sensors_settings
+
+
+# FPC device parameter permissions
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/nav
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/clk_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/dev_enable
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/irq
+   chown system oem_5004 /sys/bus/spi/devices/spi12.0/irq_cnt
+   chmod 0440 /sys/bus/spi/devices/spi12.0/irq_cnt
+
+# Change ownership of aov related sysfs entries
+   wait /sys/kernel/aov/event
    chown audio audio /sys/kernel/aov/trigger
    chown audio audio /sys/kernel/aov/register
    chown audio audio /sys/kernel/aov/event
