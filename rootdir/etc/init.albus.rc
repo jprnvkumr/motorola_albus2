@@ -27,6 +27,7 @@
 import /vendor/etc/init/hw/init.${ro.boot.hardware.sku}.rc
 
 on init
+    setprop ro.product.model ${ro.boot.hardware.sku}
     setprop ro.hw.dualsim ${ro.boot.dualsim}
     setprop ro.hw.device ${ro.boot.device}
     setprop ro.hw.radio ${ro.boot.radio}
