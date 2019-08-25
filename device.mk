@@ -126,13 +126,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/com.motorola.camera/always_aware_ocr.json:$(TARGET_COPY_OUT_VENDOR)/etc/motorola/com.motorola.camera/always_aware_ocr.json
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/etc/flp.conf:system/vendor/etc/flp.conf \
-    $(LOCAL_PATH)/gps/etc/gps.conf:system/vendor/etc/gps.conf \
-    $(LOCAL_PATH)/gps/etc/izat.conf:system/vendor/etc/izat.conf \
-    $(LOCAL_PATH)/gps/etc/lowi.conf:system/vendor/etc/lowi.conf \
-    $(LOCAL_PATH)/gps/etc/sap.conf:system/vendor/etc/sap.conf \
-    $(LOCAL_PATH)/gps/etc/xtwifi.conf:system/vendor/etc/xtwifi.conf \
-    $(LOCAL_PATH)/gps/etc/cacert_location.pem:system/vendor/etc/cacert_location.pem
+    $(LOCAL_PATH)/gps/etc/flp.conf:vendor/etc/flp.conf \
+    $(LOCAL_PATH)/gps/etc/gps.conf:vendor/etc/gps.conf \
+    $(LOCAL_PATH)/gps/etc/izat.conf:vendor/etc/izat.conf \
+    $(LOCAL_PATH)/gps/etc/lowi.conf:vendor/etc/lowi.conf \
+    $(LOCAL_PATH)/gps/etc/sap.conf:vendor/etc/sap.conf \
+    $(LOCAL_PATH)/gps/etc/xtwifi.conf:vendor/etc/xtwifi.conf \
+    $(LOCAL_PATH)/gps/etc/cacert_location.pem:vendor/etc/cacert_location.pem
 
 # MotoActions
 #PRODUCT_PACKAGES += \
@@ -212,7 +212,7 @@ PRODUCT_PACKAGES += \
 
 # IRSC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/vendor/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:vendor/etc/sec_config
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
@@ -222,7 +222,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics_dsxv26.kl:system/usr/keylayout/synaptics_dsxv26.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/keylayout/Vendor_22b8_Product_ffff.kl:system/vendor/usr/keylayout/Vendor_22b8_Product_ffff.kl
+    $(LOCAL_PATH)/keylayout/Vendor_22b8_Product_ffff.kl:vendor/usr/keylayout/Vendor_22b8_Product_ffff.kl
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -245,33 +245,33 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-service.widevine
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_djn_1080p_550.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_djn_1080p_550.xml \
-    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_550.xml:system/vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_550.xml
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_djn_1080p_550.xml:vendor/etc/qdcm_calib_data_mipi_mot_vid_djn_1080p_550.xml \
+    $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_vid_tianma_1080p_550.xml:vendor/etc/qdcm_calib_data_mipi_mot_vid_tianma_1080p_550.xml
 
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/vendor/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/vendor/etc/media_codecs_performance.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/vendor/etc/media_profiles_vendor.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:vendor/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:vendor/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:vendor/etc/media_profiles_vendor.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/configs/media_profiles_mod0.xml:system/vendor/etc/media_profiles_mod0.xml \
-    $(LOCAL_PATH)/configs/media_profiles_mod1.xml:system/vendor/etc/media_profiles_mod1.xml
+    $(LOCAL_PATH)/configs/media_profiles_mod0.xml:vendor/etc/media_profiles_mod0.xml \
+    $(LOCAL_PATH)/configs/media_profiles_mod1.xml:vendor/etc/media_profiles_mod1.xml
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/vendor/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/vendor/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/vendor/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:vendor/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:vendor/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:vendor/etc/media_codecs_google_video.xml
 
 # NFC
 PRODUCT_COPY_FILES += \
     frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/libnfc-nci.conf:system/vendor/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/libnfc-nxp.conf:system/vendor/etc/libnfc-nxp.conf
+    $(LOCAL_PATH)/configs/libnfc-nci.conf:vendor/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp.conf:vendor/etc/libnfc-nxp.conf
 
 # Netutils
 PRODUCT_PACKAGES += \
@@ -323,7 +323,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
 
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:system/vendor/ueventd.rc
+     $(LOCAL_PATH)/rootdir/etc/ueventd.qcom.rc:vendor/ueventd.rc
 
 # Powerhint configuration file
 PRODUCT_COPY_FILES += \
@@ -332,7 +332,7 @@ PRODUCT_COPY_FILES += \
 
 # Releasetools script
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/check_features.sh:system/vendor/bin/check_features.sh
+    $(LOCAL_PATH)/configs/check_features.sh:vendor/bin/check_features.sh
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -346,8 +346,8 @@ PRODUCT_PACKAGES += \
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp_policy/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:vendor/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp_policy/mediaextractor.policy:vendor/etc/seccomp_policy/mediaextractor.policy
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -359,8 +359,8 @@ PRODUCT_BOOT_JARS += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/vendor/etc/sensors/hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/vendor/etc/sensors/sensor_def_qcomdev.conf
+    $(LOCAL_PATH)/configs/sensors/hals.conf:vendor/etc/sensors/hals.conf \
+    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:vendor/etc/sensors/sensor_def_qcomdev.conf
 
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
@@ -372,7 +372,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-albus.conf:system/vendor/etc/thermal-engine.conf
+    $(LOCAL_PATH)/configs/thermal-engine-albus.conf:vendor/etc/thermal-engine.conf
 
 # USB
 PRODUCT_PACKAGES += \
